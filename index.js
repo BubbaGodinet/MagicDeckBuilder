@@ -10,20 +10,51 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardContainer = document.createElement("div");
     const div = document.createElement("div");
     const img = document.createElement("img");
+    const addBttn = document.createElement("button");
+    const deleteBttn = document.createElement("button");
+
+    div.id = e.multiverseid;
+    img.id = e.multiverseid;
+    addBttn.className = "add-to-deck";
+    deleteBttn.className = "delete-card";
+    addBttn.textContent = "Add to Deck";
+    deleteBttn.textContent = "Delete Card";
+    div.append(addBttn);
+    div.append(deleteBttn);
+
     div.className = "one-card";
     img.src = e.imageUrl;
     img.className = "zoom";
     div.append(img);
     cardContainer.append(div);
     allCards.append(cardContainer);
-    div.addEventListener("click", () => getDeck(div));
-
+    addBttn.addEventListener("click", () => getDeck(img));
+    deleteBttn.addEventListener("click", () => deleteCard(div));
     console.log("renderChar is running");
   }
 
+  function deleteCard(e) {
+    e.remove();
+  }
+
   function getDeck(e) {
-    const deck = document.querySelector(".deck-container");
-    deck.append(e);
+    const deckStack = document.querySelector(".back-of-card");
+    const cardDiv = document.querySelector("div");
+    if (e.id === cardDiv.id) {
+      cardDiv.remove();
+    }
+    e.className = "new-deck";
+    deckStack.append(e);
+  }
+
+  const deck = document.querySelector(".back-of-card");
+  deck.addEventListener("click", () => openDeck());
+
+  function openDeck() {
+    const deckContainer = document.querySelector(".deck-container");
+    const deckCards = document.querySelector(".new-deck");
+    console.log(deckCards);
+    deckContainer.append(deckCards);
   }
 
   console.log("Global scope is working");
