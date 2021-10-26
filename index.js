@@ -52,9 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openDeck() {
     const deckContainer = document.querySelector(".deck-container");
-    const deckCards = document.querySelector("#new-deck");
-    console.log(deckCards);
-    deckContainer.append(deckCards);
+    const deckCards = document.querySelectorAll("#new-deck");
+    for (let i = 0; i < deckCards.length; i++) {
+      deckContainer.append(deckCards[i]);
+    }
   }
 
   console.log("Global scope is working");

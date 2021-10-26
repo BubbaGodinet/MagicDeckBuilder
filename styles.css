@@ -78,3 +78,13 @@ body {
 .one-card:hover {
   transform: scale(1.5);
 }
+
+#new-deck {
+  grid-area: innder-divs;
+  transition: transform 0.2s;
+  padding: 20px;
+}
+
+#new-deck:hover {
+  transform: scale(1.5);
+}
