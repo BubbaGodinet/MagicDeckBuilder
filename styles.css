@@ -52,6 +52,8 @@ background {
 .all-cards {
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
 }
 
 h1 {
