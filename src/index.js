@@ -6,17 +6,24 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((magicData) => magicData.cards.forEach((value) => renderChar(value)));
 
   function renderChar(e) {
-    const body = document.querySelector("body");
+    const allCards = document.querySelector(".all-cards");
     const cardContainer = document.createElement("div");
-    const h3 = document.createElement("h3");
+    const div = document.createElement("div");
     const img = document.createElement("img");
+    div.className = "one-card";
     img.src = e.imageUrl;
-    h3.textContent = e.name;
-    cardContainer.append(img);
-    cardContainer.append(h3);
-    body.append(cardContainer);
+    img.className = "zoom";
+    div.append(img);
+    cardContainer.append(div);
+    allCards.append(cardContainer);
+    div.addEventListener("click", () => getDeck(div));
 
     console.log("renderChar is running");
+  }
+
+  function getDeck(e) {
+    const deck = document.querySelector(".deck-container");
+    deck.append(e);
   }
 
   console.log("Global scope is working");
