@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const addBttn = document.createElement("button");
     const deleteBttn = document.createElement("button");
 
-    div.id = e.multiverseid;
+    cardContainer.id = e.multiverseid;
     img.id = e.multiverseid;
     addBttn.className = "add-to-deck";
     deleteBttn.className = "delete-card";
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     img.src = e.imageUrl;
     img.className = "zoom";
     div.append(img);
+    // cardContainer.id = "her i am";
     cardContainer.append(div);
     allCards.append(cardContainer);
     addBttn.addEventListener("click", () => getDeck(img));
@@ -39,11 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function getDeck(e) {
     const deckStack = document.querySelector(".back-of-card");
-    const cardDiv = document.querySelector("div");
-    if (e.id === cardDiv.id) {
-      cardDiv.remove();
-    }
-    e.className = "new-deck";
+    const cardDiv = document.getElementById(`${e.id}`);
+    cardDiv.remove();
+
+    e.id = "new-deck";
     deckStack.append(e);
   }
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openDeck() {
     const deckContainer = document.querySelector(".deck-container");
-    const deckCards = document.querySelector(".new-deck");
+    const deckCards = document.querySelector("#new-deck");
     console.log(deckCards);
     deckContainer.append(deckCards);
   }

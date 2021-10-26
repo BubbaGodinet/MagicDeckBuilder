@@ -1,9 +1,15 @@
 button {
   display: none;
   font-style: bold;
-  background-color: rgb(3, 83, 46);
+  border-style: bold;
   height: 40px;
   width: 100px;
+}
+.add-to-deck {
+  background-color: green;
+}
+.delete-card {
+  background-color: firebrick;
 }
 
 background {
