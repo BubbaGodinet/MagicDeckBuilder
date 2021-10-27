@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = document.createElement("img");
     const addBttn = document.createElement("button");
     const deleteBttn = document.createElement("button");
+    // if (e.rarity === "Common") {
+    //   img.style.border = "thick solid #ffffff";
+    // } else if (e.rarity === "Rare") {
+    //   img.style.border = "thick solid #FFD700";
+    // } else if (e.rarity === "Uncommon") {
+    //   img.style.border = "thick solid #0000FF";
+    // }
 
     cardContainer.id = e.multiverseid;
     img.id = e.multiverseid;
@@ -26,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     img.src = e.imageUrl;
     img.className = `${e.rarity}`;
     div.append(img);
-    // cardContainer.id = "her i am";
+
     cardContainer.append(div);
     allCards.append(cardContainer);
     addBttn.addEventListener("click", () => getDeck(img));

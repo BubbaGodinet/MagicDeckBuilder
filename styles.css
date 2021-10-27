@@ -4,8 +4,9 @@
   height: 70px;
   width: 150px;
   position: fixed;
-  left: 2200px;
-  bottom: 500px;
+  right: 10px;
+  top: 1150px;
+  background-color: silver;
 }
 .add-to-deck {
   display: none;
@@ -76,6 +77,7 @@ h1 {
 }
 
 body {
+  position: relative;
   background-image: url("https://wallpapercave.com/wp/wp2805716.png");
 }
 
