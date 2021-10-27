@@ -1,28 +1,82 @@
 #refreshed {
+  font-size: 15px;
   font-style: bold;
-  border-style: bold;
+  border: solid 2px black;
   height: 70px;
   width: 150px;
   position: fixed;
   right: 10px;
   top: 1150px;
-  background-color: silver;
+  background-color: green; /*for compatibility with older browsers*/
+  background-image: linear-gradient(green, lightgreen);
 }
+
+#refreshed:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: 50%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+#refreshed:hover {
+  background: linear-gradient(#073, #0fa);
+}
+
 .add-to-deck {
   display: none;
   font-style: bold;
   border-style: bold;
   height: 30px;
   width: 90px;
-  background-color: green;
+  background-color: green; /*for compatibility with older browsers*/
+  background-image: linear-gradient(green, lightgreen);
 }
+.add-to-deck:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: 50%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+.add-to-deck:hover {
+  background: linear-gradient(#073, #0fa);
+}
+
 .delete-card {
   display: none;
   font-style: bold;
   border-style: bold;
   height: 30px;
   width: 90px;
-  background-color: firebrick;
+  background-color: firebrick; /*for compatibility with older browsers*/
+  background-image: linear-gradient(firebrick, rgb(233, 76, 76));
+}
+
+.delete-card:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: 50%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.711),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+.delete-card:hover {
+  background: linear-gradient(rgb(119, 0, 0), rgb(255, 0, 0));
 }
 
 background {
@@ -38,7 +92,8 @@ background {
 }
 
 .deck-container {
-  border-top: solid 15px white;
+  border-top: solid 15px black;
+  margin: 0 auto;
 }
 
 .one-card:hover .add-to-deck {
@@ -70,15 +125,38 @@ h1 {
   padding: 0;
   font-family: "MedievalSharp", cursive;
   text-align: center;
-  font-size: 85px;
+  font-size: 125px;
   opacity: 99%;
   color: rgb(226, 216, 216);
   position: relative;
 }
 
-body {
-  position: relative;
+h1 span {
+  display: inline-flex;
+  animation: animate 2.5s linear forwards;
+  margin: 0 auto;
+}
+
+@keyframes animate {
+  10% {
+    opacity: 100;
+    transform: rotateY(10deg);
+    filter: blur(30px);
+  }
+  100% {
+    opacity: 100;
+    transform: rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+html {
   background-image: url("https://wallpapercave.com/wp/wp2805716.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .one-card {

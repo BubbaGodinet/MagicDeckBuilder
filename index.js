@@ -45,12 +45,27 @@ document.addEventListener("DOMContentLoaded", () => {
     e.remove();
   }
 
-  function getDeck(e) {
+  function getDeck(img) {
     const deckStack = document.querySelector(".back-of-card");
-    const cardDiv = document.getElementById(`${e.id}`);
+    const cardDiv = document.getElementById(`${img.id}`);
     cardDiv.remove();
-    e.id = "new-deck";
-    deckStack.append(e);
+    img.id = "new-deck";
+    deckStack.append(img);
+    saveDeck(img);
+  }
+
+  function saveDeck(img) {
+    const newCard = {
+      img: img.src,
+    };
+
+    fetch("http://localhost:3000/cards", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCard),
+    }).then((response) => response.json());
   }
 
   const deck = document.querySelector(".back-of-card");
@@ -62,6 +77,19 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < deckCards.length; i++) {
       deckContainer.append(deckCards[i]);
     }
+  }
+  fetch("http://localhost:3000/cards")
+    .then((response) => response.json())
+    .then((savedCardArr) =>
+      savedCardArr.forEach((savedCards) => retrieveDeck(savedCards))
+    );
+
+  function retrieveDeck(savedCards) {
+    const deckStack = document.querySelector(".back-of-card");
+    const deckImg = document.createElement("img");
+    deckImg.id = "new-deck";
+    deckImg.src = `${savedCards.img}`;
+    deckStack.append(deckImg);
   }
 
   const body = document.querySelector("body");
