@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     div.className = "one-card";
     img.src = e.imageUrl;
-    img.className = "zoom";
+    img.className = `${e.rarity}`;
     div.append(img);
     // cardContainer.id = "her i am";
     cardContainer.append(div);
@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const deckStack = document.querySelector(".back-of-card");
     const cardDiv = document.getElementById(`${e.id}`);
     cardDiv.remove();
-
     e.id = "new-deck";
     deckStack.append(e);
   }
@@ -56,6 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < deckCards.length; i++) {
       deckContainer.append(deckCards[i]);
     }
+  }
+
+  const body = document.querySelector("body");
+  const refreshBttn = document.createElement("button");
+  refreshBttn.textContent = "New Booster Pack";
+  refreshBttn.id = "refreshed";
+  body.append(refreshBttn);
+  refreshBttn.addEventListener("click", () => refreshBooster());
+
+  function refreshBooster() {
+    fetch(magicUrl)
+      .then((response) => response.json())
+      .then((magicData) =>
+        magicData.cards.forEach((value) => renderChar(value))
+      );
   }
 
   console.log("Global scope is working");

@@ -1,14 +1,26 @@
-button {
+#refreshed {
+  font-style: bold;
+  border-style: bold;
+  height: 70px;
+  width: 150px;
+  position: fixed;
+  left: 2200px;
+  bottom: 500px;
+}
+.add-to-deck {
   display: none;
   font-style: bold;
   border-style: bold;
   height: 30px;
   width: 90px;
-}
-.add-to-deck {
   background-color: green;
 }
 .delete-card {
+  display: none;
+  font-style: bold;
+  border-style: bold;
+  height: 30px;
+  width: 90px;
   background-color: firebrick;
 }
 
@@ -24,12 +36,9 @@ background {
   height: 345px;
 }
 
-/* .deck-container {
- 
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  grid-template-rows: 150px 1fr;
-} */
+.deck-container {
+  border-top: solid 15px white;
+}
 
 .one-card:hover .add-to-deck {
   display: block;
