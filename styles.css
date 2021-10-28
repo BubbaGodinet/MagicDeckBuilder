@@ -1,31 +1,70 @@
-#refreshed {
-  font-size: 15px;
-  font-style: bold;
-  border: solid 2px black;
-  height: 70px;
-  width: 150px;
-  position: fixed;
-  right: 10px;
-  top: 1150px;
-  background-color: green; /*for compatibility with older browsers*/
-  background-image: linear-gradient(green, lightgreen);
+html {
+  background-image: url("https://wallpapercave.com/wp/wp2805716.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-#refreshed:after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 4px);
-  height: 50%;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.2)
-  );
+h1 {
+  padding: 0;
+  font-family: "MedievalSharp", cursive;
+  text-align: center;
+  font-size: 125px;
+  opacity: 99%;
+  color: rgb(226, 216, 216);
+  position: relative;
 }
 
-#refreshed:hover {
-  background: linear-gradient(#073, #0fa);
+h1 span {
+  display: inline-flex;
+  animation: animate 2.5s linear forwards;
+  margin: 0 auto;
+}
+
+@keyframes animate {
+  10% {
+    opacity: 100;
+    transform: rotateY(10deg);
+    filter: blur(30px);
+  }
+  100% {
+    opacity: 100;
+    transform: rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+.all-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.one-card {
+  padding: 20px;
+  grid-area: innder-divs;
+  transition: transform 0.2s;
+}
+
+.one-card:hover .add-to-deck {
+  display: block;
+  position: relative;
+  bottom: -20px;
+  right: -10px;
+}
+
+.one-card:hover .delete-card {
+  display: block;
+  position: relative;
+  bottom: 10px;
+  right: -120px;
+}
+
+.one-card:hover {
+  transform: scale(1.5);
 }
 
 .add-to-deck {
@@ -75,12 +114,39 @@
     rgba(255, 255, 255, 0.2)
   );
 }
+
 .delete-card:hover {
   background: linear-gradient(rgb(119, 0, 0), rgb(255, 0, 0));
 }
 
-background {
-  background-color: blue;
+#refreshed {
+  font-size: 15px;
+  font-style: bold;
+  border: solid 2px black;
+  height: 70px;
+  width: 150px;
+  position: fixed;
+  right: 40px;
+  top: 1075px;
+  background-color: green; /*for compatibility with older browsers*/
+  background-image: linear-gradient(green, lightgreen);
+}
+
+#refreshed:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: 50%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+#refreshed:hover {
+  background: linear-gradient(#073, #0fa);
 }
 
 .back-of-card {
@@ -92,80 +158,9 @@ background {
 }
 
 .deck-container {
-  border-top: solid 15px black;
-  margin: 0 auto;
-}
-
-.one-card:hover .add-to-deck {
-  display: block;
-  position: relative;
-  bottom: -20px;
-  right: -10px;
-}
-
-.one-card:hover .delete-card {
-  display: block;
-  position: relative;
-  bottom: 10px;
-  right: -120px;
-}
-
-.one-card {
-  padding: 20px;
-}
-
-.all-cards {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  margin: 0 auto;
-}
-
-h1 {
-  padding: 0;
-  font-family: "MedievalSharp", cursive;
-  text-align: center;
-  font-size: 125px;
-  opacity: 99%;
-  color: rgb(226, 216, 216);
-  position: relative;
-}
-
-h1 span {
-  display: inline-flex;
-  animation: animate 2.5s linear forwards;
-  margin: 0 auto;
-}
-
-@keyframes animate {
-  10% {
-    opacity: 100;
-    transform: rotateY(10deg);
-    filter: blur(30px);
-  }
-  100% {
-    opacity: 100;
-    transform: rotateY(0deg);
-    filter: blur(0px);
-  }
-}
-
-html {
-  background-image: url("https://wallpapercave.com/wp/wp2805716.png");
-  height: 100%;
-  background-position: center;
+  min-width: 100vw;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.one-card {
-  grid-area: innder-divs;
-  transition: transform 0.2s;
-}
-
-.one-card:hover {
-  transform: scale(1.5);
+  background: linear-gradient(rgba(3, 3, 3, 0.026), rgb(0, 0, 0));
 }
 
 #new-deck {
