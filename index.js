@@ -123,6 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
         magicData.cards.forEach((value) => renderChar(value))
       );
   }
+  const overlay = document.querySelector(".overlay");
+  overlay.addEventListener("click", () => openSesame());
+
+  function openSesame() {
+    overlay.remove();
+  }
 });
 
 // https://gatherer.wizards.com/pages/card/Languages.aspx?
