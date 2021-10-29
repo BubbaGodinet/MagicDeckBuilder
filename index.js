@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < newCards.length; i++) {
       if (deckContainer.contains(newCards[i])) {
         deck.append(newCards[i]);
+        newCards[i].className = "my-deck";
       }
     }
   }
